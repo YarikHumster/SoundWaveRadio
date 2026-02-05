@@ -1,0 +1,51 @@
+package com.yaros.RadioUrl.ui.categories
+
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
+import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
+import com.bumptech.glide.request.RequestOptions
+import com.yaros.RadioUrl.BuildConfig
+import com.yaros.RadioUrl.R
+import com.yaros.RadioUrl.core.APIInterface.data.Category
+import kotlinx.coroutines.launch
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.bind(getItem(position))
+    }
+
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        fun bind(category: Category) {
+            with(itemView) {
+                categoryName.text = category.name
+                stationCount.text = category.stationsCount.toString()
+                
+                Glide.with(context)
+                    .load("${BuildConfig.BASE_URL}images/${category.image}")
+                    .transition(DrawableTransitionOptions.withCrossFade())
+                    .apply(RequestOptions()
+                        .placeholder(R.drawable.ic_category_placeholder)
+                        .error(R.drawable.ic_category_placeholder))
+                    .into(categoryImage)
+
+                setOnClickListener { onItemClick(category) }
+            }
+        }
+    }
+
+    companion object {
+        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Category>() {
+            override fun areItemsTheSame(oldItem: Category, newItem: Category): Boolean {
+                return oldItem.id == newItem.id
+            }
+
+            override fun areContentsTheSame(oldItem: Category, newItem: Category): Boolean {
+                return oldItem == newItem
+            }
+        }
+    }
+}

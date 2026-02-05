@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="2dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/stationImageCard"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            app:cardCornerRadius="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/stationImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                tools:src="@tools:sample/avatars" />
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/stationNameText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="8dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+            app:layout_constraintBottom_toTopOf="@id/stationFrequencyText"
+            app:layout_constraintEnd_toStartOf="@id/volumeButton"
+            app:layout_constraintStart_toEndOf="@id/stationImageCard"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="Radio Romania" />
+
+        <TextView
+            android:id="@+id/stationFrequencyText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+            android:textColor="?android:attr/textColorSecondary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/stationNameText"
+            app:layout_constraintStart_toStartOf="@id/stationNameText"
+            app:layout_constraintTop_toBottomOf="@id/stationNameText"
+            tools:text="102.5 FM" />
+
+        <ImageButton
+            android:id="@+id/volumeButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="8dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Громкость"
+            android:src="@drawable/ic_equalizer_24"
+            app:tint="?android:attr/textColorSecondary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/addToCollectionButton"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/addToCollectionButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="8dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/dialog_find_station_button_add"
+            android:src="@drawable/ic_add_24dp"
+            app:tint="?android:attr/textColorSecondary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/playButton"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/playButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/descr_card_small_play_button"
+            android:src="@drawable/ic_notification_play_36dp"
+            app:tint="?attr/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/playIndicator"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

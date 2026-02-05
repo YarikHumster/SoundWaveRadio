@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.yaros.RadioUrl.ui.PlayerFragment"
+        android:label="fragment_player"
+        tools:layout="@layout/fragment_player">
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_menu"
+            app:destination="@id/navigation_menu" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_categories"
+            app:destination="@id/navigation_categories" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_menu"
+        android:name="com.yaros.RadioUrl.ui.MenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu">
+        <action
+            android:id="@+id/action_navigation_menu_to_navigation_home"
+            app:destination="@id/navigation_home" />
+        <action
+            android:id="@+id/action_navigation_menu_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_navigation_menu_to_navigation_social"
+            app:destination="@id/navigation_social" />
+        <action
+            android:id="@+id/action_navigation_menu_to_navigation_favorite"
+            app:destination="@id/navigation_favorite" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_categories"
+        android:name="com.yaros.RadioUrl.ui.catalog.CatalogFragment"
+        android:label="@string/menu_categories"
+        tools:layout="@layout/fragment_catalog">
+        <action
+            android:id="@+id/action_navigation_categories_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_favorite"
+        android:name="com.yaros.RadioUrl.ui.FavoriteSong.FavoriteFragment"
+        android:label="@string/menu_favorites"
+        tools:layout="@layout/fragment_favorite_tracks" >
+        <action
+            android:id="@+id/action_navigation_favorite_to_navigation_menu"
+            app:destination="@id/navigation_menu" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.yaros.RadioUrl.ui.SettingsFragment"
+        android:label="SettingsFragment" >
+        <action
+            android:id="@+id/action_settingsFragment_to_navigation_menu"
+            app:destination="@id/navigation_menu" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_social"
+        android:name="com.yaros.RadioUrl.ui.SocialFragment"
+        android:label="SocialFragment"
+        tools:layout="@layout/activity_social">
+        <action
+            android:id="@+id/action_navigation_social_to_navigation_menu"
+            app:destination="@id/navigation_menu" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoryStationsFragment"
+        android:name="com.yaros.RadioUrl.ui.categories.CategoryStationsFragment"
+        android:label="CategoryStationsFragment"
+        tools:layout="@layout/fragment_category_stations">
+        <argument
+            android:name="categoryId"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="categoryName"
+            app:argType="string"
+            android:defaultValue="" />
+        <action
+            android:id="@+id/action_categoryStationsFragment_to_navigation_categories"
+            app:destination="@id/navigation_categories" />
+    </fragment>
+</navigation>
+

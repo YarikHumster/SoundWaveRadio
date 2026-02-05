@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="2dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/newsImageCard"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:cardCornerRadius="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/newsImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                tools:src="@tools:sample/backgrounds/scenic" />
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/newsTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="8dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/newsImageCard"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Breaking News Title" />
+
+        <TextView
+            android:id="@+id/newsDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+            android:textColor="?android:attr/textColorSecondary"
+            app:layout_constraintEnd_toEndOf="@id/newsTitle"
+            app:layout_constraintStart_toStartOf="@id/newsTitle"
+            app:layout_constraintTop_toBottomOf="@id/newsTitle"
+            tools:text="This is a brief description of the news article that will be displayed here." />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

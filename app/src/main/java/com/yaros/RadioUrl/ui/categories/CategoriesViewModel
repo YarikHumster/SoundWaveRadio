@@ -1,0 +1,30 @@
+package com.yaros.RadioUrl.ui.categories
+
+class CategoriesViewModel(
+    private val repository: CategoriesRepository
+) : ViewModel() {
+    private val _categories = MutableLiveData<CategoriesState>()
+    val categories: LiveData<CategoriesState> = _categories
+
+    fun loadCategories() {
+        _categories.value = CategoriesState.Loading
+        viewModelScope.launch {
+            try {
+                val response = repository.getCategories()
+                if (response.status == "ok") {
+                    _categories.value = CategoriesState.Success(response.categories)
+                } else {
+                    _categories.value = CategoriesState.Error("Server error")
+                }
+            } catch (e: Exception) {
+                _categories.value = CategoriesState.Error(e.message ?: "Unknown error")
+            }
+        }
+    }
+}
+
+sealed class CategoriesState {
+    object Loading : CategoriesState()
+    data class Success(val data: List<Category>) : CategoriesState()
+    data class Error(val message: String) : CategoriesState()
+}
