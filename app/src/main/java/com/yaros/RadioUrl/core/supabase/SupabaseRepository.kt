@@ -10,9 +10,9 @@ import kotlinx.serialization.Serializable
 
 class SupabaseRepository {
 
-    /**
-     * Получить все категории из таблицы category с подсчетом радиостанций
-     */
+//    /**
+//     * Получить все категории из таблицы category с подсчетом радиостанций
+//     */
     suspend fun getCategories(): Result<List<Category>> = withContext(Dispatchers.IO) {
         try {
             val response = SupabaseClient.client
