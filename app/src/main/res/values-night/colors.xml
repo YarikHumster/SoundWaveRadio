@@ -1,35 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <resources>
-    <!-- NIGHT THEME COLORS -->
+    <!-- NIGHT THEME COLORS - Modern Refreshed Palette -->
 
-    <!-- app colors -->
-    <color name="app_onboarding_icons">#FFFFFFFF</color>
+    <!-- Primary Brand Colors (Night) -->
+    <color name="primary">#FF818CF8</color>
+    <color name="primary_variant">#FF6366F1</color>
+    <color name="primary_light">#FFA5B4FC</color>
+    <color name="primary_dark">#FF4F46E5</color>
+    
+    <!-- Secondary Accent Colors (Night) -->
+    <color name="secondary">#FFF472B6</color>
+    <color name="secondary_variant">#FFEC4899</color>
+    <color name="secondary_light">#FFF9A8D4</color>
+    
+    <!-- Background Colors (Night) -->
+    <color name="background_primary">#FF0F172A</color>
+    <color name="background_secondary">#FF1E293B</color>
+    <color name="background_tertiary">#FF334155</color>
+    <color name="surface">#FF1E293B</color>
+    <color name="surface_variant">#FF334155</color>
+    
+    <!-- Text & Icon Colors (Night) -->
+    <color name="text_primary">#FFF8FAFC</color>
+    <color name="text_secondary">#FFCBD5E1</color>
+    <color name="text_tertiary">#FF64748B</color>
+    <color name="text_on_primary">#FF0F172A</color>
+    <color name="text_on_secondary">#FFF8FAFC</color>
+    
+    <!-- Legacy color mappings for compatibility -->
+    <color name="app_onboarding_icons">#FFF8FAFC</color>
+    <color name="text_default">#FFF8FAFC</color>
+    <color name="text_lightweight">#FFCBD5E1</color>
+    <color name="icon_default">#FF818CF8</color>
+    <color name="vk">#FF818CF8</color>
+    <color name="icon_lightweight">#FFCBD5E1</color>
+    <color name="icon_lightweight_background">#FF475569</color>
 
-    <!-- text & icons -->
-    <color name="text_default">#FFFFFFFF</color>
-    <color name="text_lightweight">#FFC5C6D0</color>
-    <color name="icon_default">#FFDAE2FF</color>
-    <color name="icon_lightweight">#FFC5C6D0</color>
-    <color name="icon_lightweight_background">#FF585E71</color>
+    <!-- List & Card Colors (Night) -->
+    <color name="list_card_background">#FF1E293B</color>
+    <color name="list_card_stroke_background">#FF475569</color>
+    <color name="list_card_cover_background">#FF334155</color>
+    <color name="list_card_delete_background">#FFF87171</color>
+    <color name="list_card_delete_icon">#FF7F1D1D</color>
+    <color name="list_card_mark_starred_background">#FF818CF8</color>
+    <color name="list_card_mark_starred_star">#FF1E293B</color>
+    <color name="search_result_background">#FF1E293B</color>
+    <color name="search_result_background_selected">#FF4338CA</color>
 
-    <!-- list -->
-    <color name="list_card_background">#FF1B1B1F</color>
-    <color name="list_card_stroke_background">#FF585E71</color>
-    <color name="list_card_cover_background">#FF49454f</color>
-    <color name="list_card_delete_background">#FFF2B8B5</color>
-    <color name="list_card_delete_icon">#FF601410</color>
-    <color name="list_card_mark_starred_background">#FFDAE2FF</color>
-    <color name="list_card_mark_starred_star">#FF182E60</color>
-    <color name="search_result_background">#FF1B1B1F</color>
-    <color name="search_result_background_selected">#FF414659</color>
+    <!-- Player Sheet Colors (Night) -->
+    <color name="player_button_background">#FF818CF8</color>
+    <color name="player_button_buffering">#FF6366F1</color>
+    <color name="player_sheet_background">#FF0F172A</color>
+    <color name="player_sheet_text_main">#FFF8FAFC</color>
+    <color name="player_sheet_icon">#FFE2E8F0</color>
+    
+    <!-- Status & Feedback Colors (Night) -->
+    <color name="success">#FF4ADE80</color>
+    <color name="warning">#FFFBBF24</color>
+    <color name="error">#FFF87171</color>
+    <color name="info">#FF60A5FA</color>
 
-    <!-- player sheet -->
-    <color name="default_neutral_white">#FF182E60</color>
-    <color name="player_button_background">#FFDAE2FF</color>
-    <color name="player_button_buffering">#FF4A5F97</color>
-    <color name="player_sheet_background">#FF2E3038</color>
-    <color name="player_sheet_text_main">#FFFFFFFF</color>
-    <color name="player_sheet_icon">#FFFFFFFF</color>
+    <!-- Default Colors (Night) -->
+    <color name="default_neutral_white">#FF1E293B</color>
+    <color name="default_neutral_lighter">#FF475569</color>
+    <color name="default_neutral_medium_light">#FF64748B</color>
+    <color name="default_neutral_dark">#FFCBD5E1</color>
+    <color name="default_neutral_85percent">#D9F8FAFC</color>
+
+    <!-- Splash Screen (Night) -->
+    <color name="splashBackgroundColor">#FF0F172A</color>
+    
+    <!-- Gradient Colors (Night) -->
+    <color name="gradient_start">#FF818CF8</color>
+    <color name="gradient_end">#FFF472B6</color>
+    <color name="gradient_overlay_start">#80818CF8</color>
+    <color name="gradient_overlay_end">#80F472B6</color>
 
 </resources>
