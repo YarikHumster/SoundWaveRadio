@@ -3,46 +3,150 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="?attr/background_primary">
 
+    <!-- Header with Search -->
+    <LinearLayout
+        android:id="@+id/headerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/favoriteTracksTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/favorite_tracks_title"
+            android:textAppearance="@style/TextAppearance.Material3.HeadlineLarge"
+            android:textColor="?attr/text_primary"
+            android:textStyle="bold" />
+
+        <!-- Modern Search Bar -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardBackgroundColor="?attr/background_tertiary"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="8dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_search_24dp"
+                    app:tint="?attr/text_tertiary" />
+
+                <EditText
+                    android:id="@+id/searchFavoriteTracksEditText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="@string/search_favorite_tracks_hint"
+                    android:imeOptions="actionSearch"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+                    android:textColor="?attr/text_primary"
+                    android:textColorHint="?attr/text_tertiary" />
+
+                <ImageButton
+                    android:id="@+id/clearSearchButton"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/ic_clear_24dp"
+                    android:visibility="gone"
+                    app:tint="?attr/text_tertiary"
+                    tools:visibility="visible" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+    <!-- Tracks RecyclerView -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/favoriteTracksRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="140dp"
         android:clipToPadding="false"
-        android:padding="8dp"
+        android:paddingHorizontal="16dp"
+        android:paddingBottom="16dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:itemCount="5"
         tools:listitem="@layout/item_track"
         tools:visibility="gone" />
 
+    <!-- Empty State -->
     <LinearLayout
         android:id="@+id/emptyFavoriteTracksView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="140dp"
         android:gravity="center"
         android:orientation="vertical"
-        android:padding="32dp">
+        android:padding="32dp"
+        android:visibility="visible">
 
-        <ImageView
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginBottom="16dp"
-            app:srcCompat="@drawable/ic_music_note_24dp"
-            app:tint="?attr/colorControlNormal" />
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            app:cardBackgroundColor="?attr/background_tertiary"
+            app:cardCornerRadius="60dp"
+            app:cardElevation="0dp">
+
+            <ImageView
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_music_note_24dp"
+                app:tint="?attr/text_tertiary" />
+
+        </com.google.android.material.card.MaterialCardView>
 
         <TextView
+            android:id="@+id/emptyFavoriteTracksTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
+            android:layout_marginTop="24dp"
+            android:text="@string/favorite_tracks_empty_title"
+            android:textAppearance="@style/TextAppearance.Material3.HeadlineSmall"
+            android:textColor="?attr/text_primary"
+            android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/emptyFavoriteTracksDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:gravity="center"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
-            android:textColor="?android:attr/textColorSecondary" />
+            android:text="@string/favorite_tracks_empty_description"
+            android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+            android:textColor="?attr/text_secondary" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/browseCatalogButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/favorite_tracks_browse_catalog"
+            android:textAllCaps="false"
+            app:cornerRadius="12dp"
+            style="@style/Widget.Material3.Button.TonalButton" />
 
     </LinearLayout>
 

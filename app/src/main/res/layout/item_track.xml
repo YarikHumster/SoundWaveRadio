@@ -7,19 +7,24 @@
     android:layout_marginBottom="8dp"
     android:clickable="true"
     android:focusable="true"
-    app:cardCornerRadius="8dp"
-    app:cardElevation="2dp">
+    app:cardBackgroundColor="?attr/surface"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="0dp"
+    app:strokeColor="?attr/background_tertiary"
+    app:strokeWidth="1dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="12dp">
 
-        <androidx.cardview.widget.CardView
+        <!-- Track Album Art -->
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/trackImageCard"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            app:cardCornerRadius="4dp"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -31,8 +36,9 @@
                 android:scaleType="centerCrop"
                 tools:src="@tools:sample/avatars" />
 
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
+        <!-- Track Title -->
         <TextView
             android:id="@+id/trackTitleText"
             android:layout_width="0dp"
@@ -41,7 +47,9 @@
             android:layout_marginEnd="8dp"
             android:ellipsize="end"
             android:maxLines="1"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+            android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+            android:textColor="?attr/text_primary"
+            android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@id/trackArtistText"
             app:layout_constraintEnd_toStartOf="@id/trackMenuButton"
             app:layout_constraintStart_toEndOf="@id/trackImageCard"
@@ -49,30 +57,32 @@
             app:layout_constraintVertical_chainStyle="packed"
             tools:text="Bohemian Rhapsody" />
 
+        <!-- Track Artist -->
         <TextView
             android:id="@+id/trackArtistText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:maxLines="1"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
-            android:textColor="?android:attr/textColorSecondary"
+            android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+            android:textColor="?attr/text_secondary"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/trackTitleText"
             app:layout_constraintStart_toStartOf="@id/trackTitleText"
             app:layout_constraintTop_toBottomOf="@id/trackTitleText"
             tools:text="Queen" />
 
+        <!-- Menu Button -->
         <ImageButton
             android:id="@+id/trackMenuButton"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_dots"
-            app:tint="?attr/colorControlNormal" />
+            app:tint="?attr/text_tertiary" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>
