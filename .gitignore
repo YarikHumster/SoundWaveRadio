@@ -1,36 +1,82 @@
-```xml
-# Android build artifacts
-*.apk
-*.aar
+# Android/Kotlin specific ignores
+*.class
 *.dex
+*.so
+*.aar
+*.apk
+*.jar
 
-# Android generated files
-gen/
-bin/
-obj/
-
-# Android Studio
+# Build artifacts
+build/
 .gradle/
 local.properties
-.proguard/
 
-# IntelliJ IDEA
+# IDE files
 .idea/
 *.iml
+*.ipr
 *.iws
-*.jar
-*.war
-*.ear
+.vscode/
 
-# Build outputs
-build/
-dist/
-target/
-
-# Log files
+# Temp files
+*.tmp
+*.temp
 *.log
 
-# OS generated files
+# Environment
+.env
+.env.local
+*.env.*
+
+# Coverage
+.coverage
+coverage/
+htmlcov/
+
+# Python (if present)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+.coverage*
+.pytest_cache/
+.mypy_cache/
+
+# Node.js (if present)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.next/
+.nuxt/
+
+# General
 .DS_Store
 Thumbs.db
-```
+*.swp
+*.swo
+*~
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Icon?
+desktop.ini
+*.local
+*local.properties
+.settings/
+*.pid
+*.seed
+*.session
+.project
+.pydevproject
+*.fdb-lock
+*.sw?
