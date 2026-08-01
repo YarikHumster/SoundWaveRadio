@@ -108,8 +108,9 @@ class CatalogFragment : Fragment() {
             onAddToCollectionClick = { station ->
                 addStationToCollection(station)
             },
-            onVolumeClick = { station ->
-                showVolumeDialog(station)
+            onVolumeClick = { station: com.yaros.RadioUrl.core.Station ->
+                val apiStation = allStations.find { it.name == station.name && it.url == station.getStreamUri() }
+                apiStation?.let { showVolumeDialog(it) }
             }
         )
         stationsRecyclerView.apply {
