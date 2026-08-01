@@ -42,7 +42,7 @@ class CatalogFragment : Fragment() {
     private lateinit var searchView: SearchView
     private var allStations: List<ApiStation> = emptyList()
 
-    private val apiRepository by lazy { SupabaseApiRepository(requireContext()) }
+    private var apiRepository: SupabaseApiRepository? = null
     private val collectionViewModel: CollectionViewModel by activityViewModels()
 
     override fun onCreateView(
@@ -55,6 +55,9 @@ class CatalogFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        // Initialize apiRepository with a valid context
+        apiRepository = SupabaseApiRepository(requireContext())
 
         stationsRecyclerView = view.findViewById(R.id.stationsRecyclerView)
         progressBar = view.findViewById(R.id.progressBar)
@@ -158,7 +161,9 @@ class CatalogFragment : Fragment() {
         progressBar.visibility = View.VISIBLE
 
         lifecycleScope.launch {
-            when (val result = apiRepository.getRecentRadio()) {
+            val repository = apiRepository ?: return@launch
+            
+            when (val result = repository.getRecentRadio()) {
                 is SupabaseApiRepository.NetworkResult.Success -> {
                     progressBar.visibility = View.GONE
                     allStations = result.data
